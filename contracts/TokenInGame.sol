@@ -13,10 +13,10 @@ contract TokenInGame is Ownable {
     address[] public allowedTokens;
     address[] public inGame;
 
-    IERC20 public w6gToken;
+    IERC20 public tavaresToken;
 
-    constructor(address _w6gTokenAddress) public {
-        w6gToken = IERC20(_w6gTokenAddress);
+    constructor(address _tavaresTokenAddress) public {
+        tavaresToken = IERC20(_tavaresTokenAddress);
     }
 
     function setPriceFeedContract(address _token, address _priceFeed)
@@ -35,7 +35,7 @@ contract TokenInGame is Ownable {
             address recipient = inGame[inGameIndex];
             // send a token reward, based on total value in game
             uint256 userTotalValue = getUserTotalValue(recipient);
-            w6gToken.transfer(recipient, userTotalValue);
+            tavaresToken.transfer(recipient, userTotalValue);
         }
     }
 
